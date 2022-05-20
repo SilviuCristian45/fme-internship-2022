@@ -1,0 +1,7 @@
+ Circle : r=2
+ Square : length=4
+ Rectangle : length=3, width=4
+ Circle : r=3
+ Square : length=5
+ Square : length=3
+ Triangle: a=3, b=4, c=5

@@ -77,16 +77,65 @@
 
 package fme.internship;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+
 /**
  * 
  * @author <full name>
  * @email <email address>
  * 
  */
-public class Test3 {
 
+
+public class Test3 {
+    abstract  class Shape{
+        private String type;
+
+        public String getType() {
+            return type;
+        }
+
+        public void setType(String type) {
+            this.type = type;
+        }
+    }
+
+    class  Square extends Shape{
+        float length;
+
+    }
+
+    class Rectangle extends Shape{
+        float length,width;
+    }
+
+    class Circle extends Shape{
+        float r;
+    }
+
+    class Triangle extends Shape{
+        float a,b,c;
+    }
     public static void main(String[] args) {
-        System.out.println("FME Internship - Test3");
+        BufferedReader reader;
+        try {
+            File file=new File("fme/internship/shapes.in");    //creates a new file instance
+            FileReader fr=new FileReader(file);   //reads the file
+            BufferedReader br=new BufferedReader(fr);  //creates a buffering character input stream
+            StringBuffer sb=new StringBuffer();    //constructs a string buffer with no characters
+            String line;
+            while((line=br.readLine())!=null)
+            {
+                sb.append(line);      //appends line to string buffer
+                sb.append("\n");     //line feed
+            }
+            fr.close();    //closes the stream and release the resources
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 }

@@ -28,16 +28,38 @@
 
 package fme.internship;
 
+import java.lang.reflect.Array;
+import java.util.Arrays;
+
+import static java.lang.Integer.parseInt;
+
 /**
  * 
- * @author <full name>
- * @email <email address>
+ * @author Dinca Silviu-Cristian
+ * @email silviudinca412@gmail.com
  * 
  */
 public class Test1 {
 
     public static void main(String[] args) {
-        System.out.println("FME Internship - Test1");
+        boolean ok = true;
+        int lastPositive = -999;
+        System.out.println();
+        for(int i = 0; i < args.length; i++) {
+            //System.out.println( i + " " + args[i]);
+            String arg = args[i];
+            int element = -2;
+            if(arg != null)
+                element = parseInt(arg);
+            if(element > 0 && lastPositive == -999)
+                lastPositive = element;
+            if (element < lastPositive && element > 0){
+                ok = false;
+                break;
+            }
+            else if(element > 0) lastPositive = element;
+        }
+        if (ok) System.out.println("YES"); else System.out.println("NO");
     }
 
 }
